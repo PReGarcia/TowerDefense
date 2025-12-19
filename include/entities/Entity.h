@@ -11,4 +11,5 @@ protected:
 public:
   virtual void Actualizar() = 0;
   virtual void Dibujar() = 0;
+  virtual ~Entity();
 };
