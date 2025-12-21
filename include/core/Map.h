@@ -12,7 +12,7 @@ public:
   Map();       // Diseño del mapa
   void Draw(); // Dibuja el mapa
 
-  // Vector2 GetCamino(int index) const {return camino[index];}; OBTENER LOS
+  std::vector<Vector2> GetCamino(int index) const { return camino; };
   // PUNTOS DEL CAMINO UNO A UNO ES MAS SEGURO
   int GetTamCamino() const { return camino.size(); }
 };

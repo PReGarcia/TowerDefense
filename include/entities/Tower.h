@@ -9,9 +9,7 @@ protected:
 
 public:
   Tower(float x, float y, Texture2D textura, int danio, int cd, int coste,
-        int rango)
-      : Entity(x, y, textura), danio(danio), cd(cd), coste(coste),
-        rango(rango) {};
+        int rango);
 
   virtual void atacar(Enemy *objetivo);
   virtual void vender();

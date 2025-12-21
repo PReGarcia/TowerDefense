@@ -12,9 +12,7 @@ protected:
   bool hacerDanio, estaVivo;
 
   Enemy(int hp, float velocidad, std::vector<Vector2> *camino, float x, float y,
-        Texture2D textura)
-      : Entity(x, y, textura), hp(hp), velocidad(velocidad), camino(camino),
-        hacerDanio(false), estaVivo(true), casillaDestino(0) {};
+        Texture2D textura);
 
 public:
   virtual void recibirDanio(int danio);

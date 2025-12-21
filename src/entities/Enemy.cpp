@@ -1,4 +1,13 @@
 #include "../../include/entities/Enemy.h"
+#include <vector>
+
+Enemy::Enemy(int hp, float velocidad, std::vector<Vector2> *camino, float x,
+             float y, Texture2D textura)
+    : Entity(x, y, textura) {
+  this->hp = hp;
+  this->velocidad = velocidad;
+  this->camino = camino;
+}
 
 void Enemy::recibirDanio(int danio) {
   this->hp -= danio;
@@ -15,19 +24,10 @@ void Enemy::caminar() {
 
   Vector2 destino = camino->at(casillaDestino);
 
-  float distancia = Vector2Distance(Vector2{x, y}, destino);
+  Vector2 nuevaPosicion = calcularMovimiento({x, y}, destino, velocidad);
 
-  if (distancia < velocidad) {
-    x = destino.x;
-    y = destino.y;
-    casillaDestino++;
-  } else {
-    Vector2 direccion = Vector2Subtract(destino, Vector2{x, y});
-    direccion = Vector2Normalize(direccion);
-
-    x += direccion.x * velocidad;
-    y += direccion.y * velocidad;
-  }
+  x = nuevaPosicion.x;
+  y = nuevaPosicion.y;
 }
 
 void Enemy::morir() { delete this; }

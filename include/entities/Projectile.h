@@ -4,10 +4,12 @@
 
 class Projectile : public Entity {
 protected:
-  int velocidad;
+  float velocidad;
   Enemy *objetivo;
 
 public:
+  Projectile(float x, float y, Texture2D textura, float velocidad,
+             Enemy *objetivo);
   virtual ~Projectile();
   virtual void mover();
 };
