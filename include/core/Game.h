@@ -1,7 +1,10 @@
 #pragma once
+#include "../core/Oleadas.h"
 #include "../core/PlayerStats.h"
 #include "../entities/Enemy.h"
 #include "../entities/Tower.h"
+#include "../entities/enemies/Goblin.h"
+#include "../entities/enemies/Orc.h"
 #include "Map.h"
 #include <vector>
 
@@ -22,4 +25,5 @@ public:
   void ActualizarTorres();
   void ActualizarEnemigos();
   void GestionarInput();
+  void SpawnEnemy(TipoEnemigo tipo);
 };

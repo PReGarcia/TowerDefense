@@ -1,6 +1,11 @@
 #include "../../include/core/Game.h"
 
-void Game::Actualizar() {};
+Game::Game() {}
+
+void Game::Actualizar() {
+  mapa.Draw();
+  ActualizarEnemigos();
+};
 
 void Game::Draw() {
   mapa.Draw();
@@ -39,5 +44,22 @@ void Game::ActualizarEnemigos() {
 }
 
 void Game::GestionarInput() {}
+
+void Game::SpawnEnemy(TipoEnemigo tipo) {
+  Vector2 salida = mapa.GetCaminoPtr()->at(0);
+  Enemy *nuevoEnemigo = nullptr;
+
+  switch (tipo) {
+  case GOBLIN:
+    nuevoEnemigo = new Goblin(mapa.GetCaminoPtr(), salida.x, salida.y);
+    break;
+  case ORC:
+    nuevoEnemigo = new Orc(mapa.GetCaminoPtr(), salida.x, salida.y);
+  }
+
+  if (nuevoEnemigo != nullptr) {
+    enemigos.push_back(nuevoEnemigo);
+  }
+}
 
 Game::~Game() {};
