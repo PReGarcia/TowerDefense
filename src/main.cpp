@@ -11,9 +11,10 @@ int main(int argc, char *argv[]) {
   Game *game = new Game();
   game->SpawnEnemy(GOBLIN);
   while (!WindowShouldClose()) {
+    game->Actualizar();
     BeginDrawing();
     ClearBackground(RAYWHITE);
-    game->Actualizar();
+    game->Draw();
     EndDrawing();
   }
 

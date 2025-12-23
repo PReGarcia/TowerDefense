@@ -7,6 +7,10 @@ Enemy::Enemy(int hp, float velocidad, int danio, std::vector<Vector2> *camino,
   this->hp = hp;
   this->velocidad = velocidad;
   this->camino = camino;
+  this->casillaDestino = 0;
+  this->vivo = true;
+  this->golpear = false;
+  this->danio = danio;
 }
 
 void Enemy::recibirDanio(int danioRecibido) {

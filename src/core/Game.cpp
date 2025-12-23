@@ -2,10 +2,7 @@
 
 Game::Game() {}
 
-void Game::Actualizar() {
-  mapa.Draw();
-  ActualizarEnemigos();
-};
+void Game::Actualizar() { ActualizarEnemigos(); };
 
 void Game::Draw() {
   mapa.Draw();
