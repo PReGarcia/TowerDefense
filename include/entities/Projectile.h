@@ -10,6 +10,6 @@ protected:
 public:
   Projectile(float x, float y, Texture2D textura, float velocidad,
              Enemy *objetivo);
-  virtual ~Projectile();
   virtual void mover();
+  virtual ~Projectile();
 };

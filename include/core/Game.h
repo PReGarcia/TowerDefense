@@ -19,4 +19,7 @@ public:
 
   void Actualizar();
   void Draw();
+  void ActualizarTorres();
+  void ActualizarEnemigos();
+  void GestionarInput();
 };

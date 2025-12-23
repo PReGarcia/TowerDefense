@@ -2,6 +2,7 @@
 #include "../raylib.h"
 #include "Enemy.h"
 #include "Entity.h"
+#include <vector>
 
 class Tower : public Entity {
 protected:
@@ -11,7 +12,7 @@ public:
   Tower(float x, float y, Texture2D textura, int danio, int cd, int coste,
         int rango);
 
-  virtual void atacar(Enemy *objetivo);
-  virtual void vender();
+  virtual void atacar(const std::vector<Enemy *> &objetivo);
+  virtual int vender();
   virtual ~Tower();
 };

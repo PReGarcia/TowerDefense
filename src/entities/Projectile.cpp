@@ -15,3 +15,5 @@ void Projectile::mover() {
   x = nuevaPosicion.x;
   y = nuevaPosicion.y;
 }
+
+Projectile::~Projectile() {}

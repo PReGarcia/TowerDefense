@@ -9,13 +9,17 @@ protected:
   int hp, casillaDestino, danio, oro;
   float velocidad;
   std::vector<Vector2> *camino; // OBTENER EL CAMINO ASI ES MAS RAPIDO Y COMODO
-  bool hacerDanio, estaVivo;
+  bool golpear, vivo;
 
-  Enemy(int hp, float velocidad, std::vector<Vector2> *camino, float x, float y,
-        Texture2D textura);
+  Enemy(int hp, float velocidad, int danio, std::vector<Vector2> *camino,
+        float x, float y, Texture2D textura);
 
 public:
-  virtual void recibirDanio(int danio);
+  virtual bool estaVivo() { return vivo; };
+  virtual int getDanio() { return danio; };
+  virtual int getOro() { return oro; };
+  virtual bool hacerDanio() { return golpear; };
+  virtual void recibirDanio(int danioRecibido);
   virtual void caminar();
   virtual void morir();
   virtual ~Enemy();

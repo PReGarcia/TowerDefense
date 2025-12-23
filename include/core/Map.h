@@ -15,4 +15,5 @@ public:
   std::vector<Vector2> GetCamino(int index) const { return camino; };
   // PUNTOS DEL CAMINO UNO A UNO ES MAS SEGURO
   int GetTamCamino() const { return camino.size(); }
+  ~Map();
 };
