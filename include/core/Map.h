@@ -9,11 +9,10 @@ private:
   std::vector<Vector2> camino;
 
 public:
-  Map();       // Diseño del mapa
-  void Draw(); // Dibuja el mapa
-
+  Map();
+  void Draw();
   std::vector<Vector2> *GetCaminoPtr() { return &camino; };
-  // PUNTOS DEL CAMINO UNO A UNO ES MAS SEGURO
   int GetTamCamino() const { return camino.size(); }
+  int GetTipoCasilla(int col, int fil);
   ~Map();
 };

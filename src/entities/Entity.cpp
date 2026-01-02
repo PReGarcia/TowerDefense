@@ -16,24 +16,30 @@ Vector2 Entity::calcularMovimiento(Vector2 posicion, Vector2 destino,
 }
 
 void Entity::Dibujar() {
-  // 1. ORIGEN: ¿Qué parte de la imagen original queremos? (Toda la imagen)
+  // 1. FUENTE: Cogemos toda la imagen original (aunque sea gigante)
   Rectangle fuente = {0.0f, 0.0f, (float)textura.width, (float)textura.height};
 
-  // 2. DESTINO: ¿Dónde y de qué tamaño la queremos en pantalla?
-  // Ajusta '40.0f' al tamaño de tus casillas o al que desees
-  float anchoDeseado = 40.0f;
-  float altoDeseado = 40.0f;
-  Rectangle destino = {x, y, anchoDeseado, altoDeseado};
+  // 2. TAMAÑO FINAL: Definimos cuánto queremos que mida en pantalla
+  // Usamos TILE_SIZE (40) para que ocupe exactamente una casilla.
+  // (Si quieres que sea un poco más pequeño que la casilla, pon TILE_SIZE *
+  // 0.8f)
+  float anchoFinal = (float)TILE_SIZE;
+  float altoFinal = (float)TILE_SIZE;
 
-  // 3. PIVOTE: ¿Desde dónde se dibuja? (0,0 es la esquina superior izquierda)
-  Vector2 origen = {0.0f, 0.0f};
+  // 3. POSICIÓN: Dónde se va a dibujar
+  Rectangle destino = {x, y, anchoFinal, altoFinal};
 
-  // 4. DIBUJAR CON ESCALADO
+  // 4. EL CENTRADO (ORIGEN):
+  // Le decimos a Raylib que el punto de anclaje es el CENTRO de la nueva
+  // imagen. Al poner esto, Raylib coloca automáticamente el centro de la imagen
+  // en tu (x,y).
+  Vector2 origen = {anchoFinal / 2.0f, altoFinal / 2.0f};
+
+  // 5. DIBUJAR
   DrawTexturePro(textura, fuente, destino, origen, 0.0f, WHITE);
 
-  // Para debug (ver el cuadrado rojo del tamaño exacto)
-  // DrawRectangleLines((int)x, (int)y, (int)anchoDeseado, (int)altoDeseado,
-  // RED);
+  // DEBUG: Descomenta esto para ver si el punto rojo (tu x,y lógica) está en el
+  // centro DrawCircle(x, y, 3, RED);
 }
 
 Entity::~Entity() {}
